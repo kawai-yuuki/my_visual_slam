@@ -1,0 +1,19 @@
+# ROS 2 build directories
+build/
+install/
+log/
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# C++ binaries (compiled executables)
+slam_main
+
+# IDE settings (VSCode etc)
+.vscode/
+.idea/
+
+# Editors
+*~
+*.swp
