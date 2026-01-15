@@ -19,19 +19,27 @@ include_directories(
 )
 
 # 実行ファイルの生成
-add_executable(slam_main src/slam_main.cpp)
+add_executable(kitti_player src/kitti_player.cpp)
 
 # ライブラリのリンク
-ament_target_dependencies(slam_main
+ament_target_dependencies(kitti_player
   rclcpp
   sensor_msgs
   cv_bridge
   image_transport
 )
+target_link_libraries(kitti_player ${OpenCV_LIBS})
 
-target_link_libraries(slam_main ${OpenCV_LIBS})
+add_executable(euroc_player src/euroc_player.cpp)
+ament_target_dependencies(euroc_player
+  rclcpp
+  sensor_msgs
+  cv_bridge
+  image_transport
+)
+target_link_libraries(euroc_player ${OpenCV_LIBS})
 
-install(TARGETS slam_main
+install(TARGETS kitti_player euroc_player
   DESTINATION lib/${PROJECT_NAME}
 )
 

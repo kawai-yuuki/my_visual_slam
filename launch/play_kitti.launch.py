@@ -21,12 +21,12 @@ def generate_launch_description():
     # 4. ノードの設定
     kitti_node = Node(
         package='my_visual_slam',
-        executable='slam_main',
+        executable='kitti_player',
         name='kitti_player_node',
         output='screen',
         parameters=[{
             'dataset_path': LaunchConfiguration('dataset_path'),
-            'frame_rate': 10.0
+            'publish_rate': 10.0
         }]
     )
 
